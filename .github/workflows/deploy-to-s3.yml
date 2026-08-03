@@ -20,13 +20,12 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-2  # Altere para a sua região da AWS
+          aws-region: us-east-2
 
       # 3. Enviar os arquivos para o S3
       - name: Deploy to S3
         run: |
           aws s3 sync . s3://meu-site-estatico-pucrs/ --exclude ".git/*" --delete --exact-timestamps
-        # 'sandbox-pucrs' é o nome do seu bucket no S3
         # --delete remove arquivos antigos no S3 que não existem mais no repositório
 
       # 4. Invalidar cache do CloudFront (opcional)
