@@ -5,6 +5,9 @@ on:
     branches:
       - main  # O pipeline será acionado a cada push na branch 'main'
 
+env:
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: 'true'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest  # Utilizando o Ubuntu para rodar o pipeline
